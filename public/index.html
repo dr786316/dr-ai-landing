@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>D-R.AI Coming Soon</title>
+    <style>
+      body {
+        background-color: #000;
+        color: #fff;
+        font-family: Arial, sans-serif;
+        text-align: center;
+        padding-top: 100px;
+      }
+      h1 {
+        font-size: 48px;
+      }
+      p {
+        font-size: 24px;
+        color: #aaa;
+      }
+      #countdown {
+        font-size: 32px;
+        margin-top: 30px;
+        font-weight: bold;
+        color: #00ffcc;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>D-R.AI</h1>
+    <p>Official Launch: 14 August 2025</p>
+    <div id="countdown">Loading timer...</div>
+
+    <script>
+      // Target launch time: 14 August 2025, 00:00 (Pakistan Time)
+      const targetDate = new Date("2025-08-14T00:00:00+05:00").getTime();
+
+      const countdown = document.getElementById("countdown");
+
+      setInterval(() => {
+        const now = new Date().getTime();
+        const distance = targetDate - now;
+
+        if (distance <= 0) {
+          countdown.innerHTML = "?? D-R.AI is LIVE!";
+          return;
+        }
+
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor(
+          (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+        );
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        countdown.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+      }, 1000);
+    </script>
+  </body>
+</html>
